@@ -46,12 +46,7 @@
 #include "agent.h"
 #include "node.h"
 #include "packet.h"
-/* edit by weapon for grouptx */
 
-#include <vector>
-using std::vector;
-
-/* end */
 /* The SCTP Common header is 12 bytes.
  */
 #define SCTP_HDR_SIZE         12

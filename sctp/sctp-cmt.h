@@ -123,6 +123,7 @@ protected:
 
   //edit by weapon
   //int  GenChunk(SctpChunkType_E, u_char *);
+  bool QL(int a);
   //end
   /******* Variables *******/
   

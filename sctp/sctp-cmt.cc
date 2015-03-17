@@ -50,7 +50,13 @@
 #include "template.h"
 
 #include "sctpDebug.h"
+/* edit by weapon for pl coding*/
+#include <cmath>
+#include <fstream>
 
+using std::endl;
+
+/* end */
 #ifdef DMALLOC
 #include "dmalloc.h"
 #endif
@@ -58,6 +64,12 @@
 #define	MIN(x,y)	(((x)<(y))?(x):(y))
 #define	MAX(x,y)	(((x)>(y))?(x):(y))
 
+/* edit by weapon for pl coding */
+
+vector<Group_S> SctpAgent::svGroups;
+int SctpAgent::siN = 10;
+
+/* end */
 
 static class SctpCMTClass : public TclClass 
 { 
@@ -560,7 +572,7 @@ int SctpCMTAgent::GenChunk(SctpChunkType_E eType, u_char *ucpChunk)
 	   */
 	  if( (uiDataChunkSize % 4) != 0)
 	    iSize += 4 - (uiDataChunkSize % 4);
-
+          
 	  ((SctpDataChunkHdr_S *) ucpChunk)->uiTsn = ++uiNextTsn;
 	  
 	  ((SctpDataChunkHdr_S *) ucpChunk)->usStreamId 
@@ -5195,7 +5207,12 @@ SctpDest_S*  SctpCMTAgent::SelectFromPFDests()
 
 }
 //edit by weapon
-
+bool SctpCMTAgent::QL(int a){
+   if (a%7==0)
+     return true;
+   else
+     return false;
+}
 //end
 /* New CMT function. Currently not used. */
 //void SctpCMTAgent::SetSharedCCParams(SctpDest_S *spCurrInfo)
